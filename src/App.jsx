@@ -25,8 +25,18 @@ export default function App() {
           {/* Logo */}
           <div className="shop-header">
             <img src="/webscript.png" alt="Celestial Logo" className="logo" />
-          </div>
-
+          </div>   
+          <div className="sidebar"> 
+             <button className="sidebar-button" onClick={() => setPage("inquiries")}> 
+              Inquiries 
+              </button> 
+              <button className="sidebar-button" onClick={() => setPage("gallery")}> 
+                Gallery 
+                </button> 
+                <button className="sidebar-button" onClick={() => setPage("cart")}> 
+                  Cart 
+                  </button> 
+                  </div>
           {/* Product Grid */}
           <div className="product-grid">
             {products.map((id) => (

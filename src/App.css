@@ -140,4 +140,35 @@ html, body, #root {
   background: url('/checkerboard2.png') center/cover no-repeat;
   opacity: 1;   /* adjust transparency */
   pointer-events: none;
-} 
+}  
+
+/* Sidebar container */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: fixed; /* stays on the left */
+  top: 150px;      /* adjust vertical offset from top */
+  left: 20px;      /* distance from screen edge */
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Individual buttons */
+.sidebar-button {
+  border: 1px solid black;
+  background: white;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  width: 120px;       /* square-ish shape */
+}
+
+.sidebar-button:hover {
+  background: black;
+  color: white;
+  border-color: black;
+}
