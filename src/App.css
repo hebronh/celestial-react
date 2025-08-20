@@ -37,28 +37,36 @@
 } 
 
 .shop-page {
-  margin-top: 400px; /* space between logo and grid */
-  padding: 100px;
+  margin-top: 50px; /* space between logo and grid */
+  padding: 0 20px;  /* smaller side padding */
+  display: flex;
+  justify-content: center; /* centers the grid horizontally */
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* smaller items */
+  gap: 15px; /* closer together */
+  max-width: 1000px; /* optional, to keep grid from stretching too much */
+  justify-items: center; /* centers each product card in its column */
 }
 
 .product-card {
   border: 1px solid black;    /* thin outline */
   overflow: hidden;
   aspect-ratio: 1 / 1;        /* perfect square */
+  width: 180px;                /* smaller size */
   background: #f9f9f9;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;     /* centers image inside card */
 }
 
 .image-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 90%;    /* smaller image inside card */
+  height: 90%;
 }
 
 .image-container img {
@@ -67,7 +75,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* keeps image aspect ratio */
   transition: opacity 0.4s ease;
 }
 
