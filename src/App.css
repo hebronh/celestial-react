@@ -291,3 +291,228 @@ html, body, #root {
   text-decoration: underline; /* optional hover effect */
 }
 
+.inquiries-container {
+  display: flex;
+  justify-content: center; /* center the form wrapper */
+  margin-top: 50px;
+  font-family: Helvetica, sans-serif;
+}
+
+.inquiries-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left-align title & form within wrapper */
+  gap: 10px;
+}
+
+.inquiries-title {
+  font-weight: normal;
+  font-size: 16px; /* slightly bigger, same as inputs */
+  color: #000000;
+  margin-bottom: 5px; /* space above inputs */
+}
+
+.inquiries-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 350px; /* larger boxes */
+}
+
+.inquiries-input,
+.inquiries-textarea {
+  border: 1px solid black;
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  outline: none;
+  width: 100%; /* fill the form wrapper */
+  box-sizing: border-box;
+}
+
+.inquiries-textarea {
+  height: 140px; /* larger message box */
+  resize: none;
+}
+
+.inquiries-send {
+  display: inline-block;      /* shrink to fit text */
+  width: auto !important;     /* ensure width does not inherit from parent */
+  max-width: fit-content;     /* makes width exactly the text width */
+  border: 1px solid black; 
+  border-radius: 0; 
+  background: transparent;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 4px 8px;           /* optional padding */
+  cursor: pointer;
+  box-sizing: content-box;     /* ensures padding does not stretch button unnecessarily */ 
+  text-align: center;          
+  align-self: center;          /* centers button horizontally in flex container */
+  margin-top: 10px;  
+}
+.inquiries-header {
+  position: absolute;
+  top: 40px;   /* distance from top */
+  right: 40px; /* distance from right */
+}
+
+.back-button {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background: none;
+  border: none;
+  color: black;   
+  cursor: pointer;
+}
+
+.back-button:hover {
+  text-decoration: underline; /* optional hover effect */
+} 
+/* Product Detail - Gallery Style Layout */
+.product-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.product-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-detail-image {
+  width: 350px; /* same as gallery image */
+  height: auto;
+  border: 1px solid #000; /* same as gallery */
+}
+
+/* Bottom section under image */
+.product-detail-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 350px; /* match image width */
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.product-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 580;
+  margin: 0;
+  color: black;
+}
+
+.product-price {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  color: black;
+}
+
+/* Size options horizontal */
+.size-options-horizontal {
+  display: flex;
+  gap: 8px;
+}
+
+.size-button {
+  border: 1px solid black;
+  border-radius: 0;
+  background: white;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.size-button:hover {
+  background: black;
+  color: white;
+}
+
+/* Action buttons horizontal */
+.product-action-buttons-horizontal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.checkout-button,
+.add-to-cart-button {
+  border: 1px solid black;
+  border-radius: 0;
+  background: white;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.checkout-button:hover,
+.add-to-cart-button:hover {
+  background: black;
+  color: white;
+}
+
+.product-detail-header {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.back-button {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+/* Size options stacked */
+.size-options-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Action buttons stacked */
+.product-action-buttons-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.size-button,
+.back-button,
+.checkout-button,
+.add-to-cart-button {
+  border: 1px solid black;
+  border-radius: 0;
+  background: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+}
