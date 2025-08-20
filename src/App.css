@@ -294,7 +294,7 @@ html, body, #root {
 .inquiries-container {
   display: flex;
   justify-content: center; /* center the form wrapper */
-  margin-top: 50px;
+  margin-top: 100px;
   font-family: Helvetica, sans-serif;
 }
 
@@ -316,13 +316,13 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 350px; /* larger boxes */
+  width: 470px; /* larger boxes */
 }
 
 .inquiries-input,
 .inquiries-textarea {
   border: 1px solid black;
-  padding: 10px;
+  padding: 5px;
   font-family: Helvetica, sans-serif;
   font-size: 16px;
   color: #000000;
@@ -332,7 +332,7 @@ html, body, #root {
 }
 
 .inquiries-textarea {
-  height: 140px; /* larger message box */
+  height: 100px; /* larger message box */
   resize: none;
 }
 
