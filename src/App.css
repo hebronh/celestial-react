@@ -32,12 +32,13 @@
 
 .shop-header {
   margin-top: 50px;   /* pushes the whole header down */
-  text-align: center; /* keeps logo centered */
+  text-align: center; /* keeps logo centered */ 
+  margin-bottom: 50px;
 } 
 
 .shop-page {
-  margin-top: 50px; /* space between logo and grid */
-  padding: 0 40px;
+  margin-top: 400px; /* space between logo and grid */
+  padding: 100px;
 }
 
 .product-grid {
@@ -125,11 +126,11 @@ html, body, #root {
   height: 100%;
 }
 
-#landing-page::before {
+ #landing-page::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url('/checkerboard.png') center/cover no-repeat;
-  opacity: 0.3;   /* adjust transparency */
+  opacity: 1;   /* adjust transparency */
   pointer-events: none;
-}
+} 
