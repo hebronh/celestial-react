@@ -43,11 +43,48 @@
   justify-content: center; /* centers the grid horizontally */
 }
 
+.shop-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* space between sidebar and grid */
+}
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 180px); /* fixed 4 columns */
-  gap: 5px;
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-height: 500px;       
+  overflow-y: scroll;     
+  padding-right: 30px;     
+}
+
+/* WebKit scrollbar (Chrome, Safari, Edge) */
+.product-grid::-webkit-scrollbar {
+  width: 12px;             
+  height: 10px;
+  -webkit-appearance: none; 
+}
+
+.product-grid::-webkit-scrollbar-track {
+  background: #333;      /* light track */
+  -webkit-appearance: none;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background: #555;          /* dark gray */
+  border-radius: 0;          /* no rounding */
+  min-height: 20px;         /* ensures thumb is always visible */
+  -webkit-appearance: none;
+}
+
+.product-grid::-webkit-scrollbar-thumb:hover {
+  background: #333;          /* darker on hover */
+}
+
+/* Firefox scrollbar */
+.product-grid {
+  scrollbar-width: auto;     /* thicker scrollbar for Firefox */
+  scrollbar-color: #555 #f1f1f1;
 }
 
 .product-card {
@@ -142,33 +179,115 @@ html, body, #root {
   pointer-events: none;
 }  
 
-/* Sidebar container */
+/* Container holding both sidebar and product grid */
+.shop-content {
+  display: flex;
+  justify-content: center; /* centers content horizontally */
+  gap: 40px;               /* space between sidebar and grid */
+  margin-top: 50px;        /* space below logo */
+}
+
+/* Sidebar next to the grid */
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  position: fixed; /* stays on the left */
-  top: 150px;      /* adjust vertical offset from top */
-  left: 20px;      /* distance from screen edge */
   font-family: Helvetica, Arial, sans-serif;
 }
 
-/* Individual buttons */
+/* Sidebar buttons */
 .sidebar-button {
-  border: 1px solid black;
-  background: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 590;          /* bold text */
+  border: 1px solid black;    /* thin outline */
+  border-radius: 0;            /* no rounded edges */
+  background-color: white;
   color: black;
-  padding: 10px 20px;
-  text-align: center;
+  padding: 0;                 /* no extra padding */
+  margin-bottom: 5px;         /* space between buttons vertically */
   cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  width: 120px;       /* square-ish shape */
+  display: inline-flex;        /* fits text exactly */
+  align-items: center;         /* vertically center text */
+  justify-content: center;     /* horizontally center text */
+  line-height: 1;             /* removes extra vertical space */
+  width: auto;                /* make width fit text exactly */
+}
+.sidebar-button:hover {
+  background-color: black;
+  color: white;
 }
 
-.sidebar-button:hover {
-  background: black;
-  color: white;
-  border-color: black;
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.gallery-image {
+  width: 350px; /* adjust size */
+  height: auto;
+  border: 1px solid #000; /* thin outline */
+}
+
+/* bottom bar under image */
+.gallery-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 350px; /* match image width */
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* reduced spacing */
+}
+
+.arrow-button {
+  border: none;
+  background: transparent;
+  font-size: 14px; /* slightly smaller so it doesn’t overwhelm the numbers */
+  cursor: pointer;
+  padding: 0; /* remove extra button spacing */
+}
+
+.gallery-counter {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.gallery-caption {
+  text-align: right; 
+  font-weight: 580; 
+} 
+
+.gallery-header {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.back-button {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background: none;
+  border: none;
+  color: black;   /* change if you want gray or another tone */
+  cursor: pointer;
+}
+
+.back-button:hover {
+  text-decoration: underline; /* optional hover effect */
+}
+
