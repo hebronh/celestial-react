@@ -45,10 +45,9 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* smaller items */
-  gap: 15px; /* closer together */
-  max-width: 1000px; /* optional, to keep grid from stretching too much */
-  justify-items: center; /* centers each product card in its column */
+  grid-template-columns: repeat(4, 180px); /* fixed 4 columns */
+  gap: 5px;
+  justify-content: center;
 }
 
 .product-card {
