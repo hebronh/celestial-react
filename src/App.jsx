@@ -133,12 +133,6 @@ return (
 )}    
 {page === "productDetail" && selectedProduct && (
   <main className="product-detail-container">
-    <div className="product-detail-header">
-      <button className="back-button" onClick={() => setPage("shop")}>
-        Back
-      </button>
-    </div>
-
     <div className="product-detail-content">
       <div className="product-detail-main">
         {/* Product Image */}
