@@ -3,18 +3,20 @@ import "./App.css";
 
 export default function App() {
   const [cartCount, setCartCount] = useState(0);
-  const [page, setPage] = useState("landing");
+  const [page, setPage] = useState("landing"); 
+  const products = Array.from({ length: 12 }, (_, i) => i);
 
-  const products = [
+
+  /*const products = [
     { id: 1, name: "ESSENTIAL_KNIT.HAT", price: "$85.00", img: "IMG_001.JPG" },
     { id: 2, name: "OVERSIZED_HOODIE.BLACK", price: "$195.00", img: "IMG_002.JPG" },
     { id: 3, name: "CARGO_PANTS.TECH", price: "$245.00", img: "IMG_003.JPG" },
     { id: 4, name: "GRAPHIC_TEE.LIMITED", price: "$75.00", img: "IMG_004.JPG" },
     { id: 5, name: "BOMBER_JACKET.NYLON", price: "$325.00", img: "IMG_005.JPG" },
     { id: 6, name: "SNEAKERS.MINIMALIST", price: "$285.00", img: "IMG_006.JPG" },
-  ];
+  ];*/
 
-  const handleAddToCart = (e) => {
+  /*const handleAddToCart = (e) => {
     setCartCount(cartCount + 1);
     const btn = e.target;
     btn.textContent = "ADDED!";
@@ -28,7 +30,7 @@ export default function App() {
       btn.style.color = "#000000";
     }, 1000);
   };
-
+*/
   return (
     <>
       {page === "landing" && (
@@ -41,8 +43,7 @@ export default function App() {
       {page === "shop" && (
         <main className="shop-container" id="shop-page">
           <div className="shop-header">
-            <h1>SHOP.CELESTIAL</h1>
-            <p>WINTER_2025.COLLECTION</p>
+           <img src="/webscript.png" alt="Celestial Logo" className="logo" />
           </div>
 
           <div className="product-grid">
@@ -51,10 +52,8 @@ export default function App() {
                 <div className="product-image">{p.img}</div>
                 <div className="product-info">
                   <h3>{p.name}</h3>
-                  <p>{p.price}</p>
-                  <button className="add-to-cart" onClick={handleAddToCart}>
-                    ADD_TO_CART()
-                  </button>
+                  <p>{p.price}</p> 
+
                 </div>
               </div>
             ))}
@@ -62,10 +61,29 @@ export default function App() {
 
           <div className="shop-footer">
             <p>
-              TOTAL_ITEMS: <span id="cart-count">{cartCount}</span>
             </p>
-            <button className="checkout-btn">CHECKOUT()</button>
-          </div>
+
+          </div>  
+          <div id="landing-page">
+      {/* Header / Logo */}
+      <header className="top-section">
+        <img src="/webscript.png" alt="Celestial Logo" className="logo" />
+      </header>
+
+      {/* Product Grid directly under logo */}
+      <div className="shop-page">
+        <div className="product-grid">
+          {products.map((id) => (
+            <div key={id} className="product-card">
+              <div className="image-container">
+                <img src="/imagedemo.png" alt="product" className="front" />
+                <img src="/imagedemo2.png" alt="product hover" className="back" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
         </main>
       )}
     </>
