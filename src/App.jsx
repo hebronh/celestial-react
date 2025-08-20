@@ -130,8 +130,7 @@ return (
       </div>
     </div>
   </main>
-)}   
-
+)}    
 {page === "productDetail" && selectedProduct && (
   <main className="product-detail-container">
     <div className="product-detail-header">
@@ -141,27 +140,16 @@ return (
     </div>
 
     <div className="product-detail-content">
-      {/* Product Image */}
-      <img
-        src={selectedProduct.imgFront}
-        alt={selectedProduct.name}
-        className="product-detail-image"
-      />
+      <div className="product-detail-main">
+        {/* Product Image */}
+        <img
+          src={selectedProduct.imgFront}
+          alt={selectedProduct.name}
+          className="product-detail-image"
+        />
 
-      {/* Bottom section with product info and controls */}
-      <div className="product-detail-bottom">
-        <div className="product-info-section">
-          <h2 className="product-name">{selectedProduct.name}</h2>
-          <p className="product-price">{selectedProduct.price}</p>
-          
-          <div className="size-options-horizontal">
-            <button className="size-button">1</button>
-            <button className="size-button">2</button>
-            <button className="size-button">3</button>
-          </div>
-        </div>
-
-        <div className="product-action-buttons-horizontal">
+        {/* Action buttons to the right of image */}
+        <div className="product-action-buttons-side">
           <button className="back-button" onClick={() => setPage("shop")}>
             Back
           </button>
@@ -172,6 +160,21 @@ return (
           >
             Add to Cart
           </button>
+        </div>
+      </div>
+
+      {/* Bottom section with product info */}
+      <div className="product-detail-bottom">
+        <div className="product-info-section">
+          <h2 className="product-name">{selectedProduct.name}</h2>
+          <p className="product-price">{selectedProduct.price}</p>
+        </div>
+        
+        <div className="size-options-right">
+          <span className="size-label">Size:</span>
+          <span className="size-option">1</span>
+          <span className="size-option">2</span>
+          <span className="size-option">3</span>
         </div>
       </div>
     </div>

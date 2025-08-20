@@ -382,8 +382,14 @@ html, body, #root {
 .product-detail-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* changed from center to flex-start */
   gap: 12px;
+}
+
+.product-detail-main {
+  display: flex;
+  align-items: flex-start; /* changed from center to flex-start */
+  gap: 40px; /* space between image and buttons */
 }
 
 .product-detail-image {
@@ -392,14 +398,22 @@ html, body, #root {
   border: 1px solid #000; /* same as gallery */
 }
 
+/* Buttons stacked to the right of image */
+.product-action-buttons-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* Bottom section under image */
 .product-detail-bottom {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 350px; /* match image width */
+  justify-content: space-between; /* space between left info and right sizes */
+  align-items: flex-start; /* align both sections to top instead of bottom */
+  width: 350px; /* exact match to image width */
   font-family: Helvetica, sans-serif;
   font-size: 12px;
+  margin-left: 0; /* ensure no left margin */
 }
 
 .product-info-section {
@@ -423,33 +437,49 @@ html, body, #root {
   color: black;
 }
 
-/* Size options horizontal */
-.size-options-horizontal {
+/* Size options on bottom right */
+.size-options-right {
   display: flex;
+  align-items: flex-start;
   gap: 8px;
 }
 
-.size-button {
-  border: 1px solid black;
-  border-radius: 0;
-  background: white;
-  padding: 4px 8px;
+.size-label {
+  font-size: 14px; /* match product name font size */
+  font-weight: normal;
+  color: black;
+}
+
+.size-option {
+  font-size: 14px; /* match product name font size */
+  font-weight: normal;
+  color: black;
   cursor: pointer;
-  font-family: Helvetica, sans-serif;
-  font-size: 12px;
+  position: relative;
 }
 
-.size-button:hover {
-  background: black;
-  color: white;
+/* V-shape positioning */
+.size-option:nth-child(2) { /* Size 1 */
+  top: 0;
 }
 
-/* Action buttons horizontal */
-.product-action-buttons-horizontal {
+.size-option:nth-child(3) { /* Size 2 - dipped down */
+  top: 8px;
+}
+
+.size-option:nth-child(4) { /* Size 3 */
+  top: 0;
+}
+
+.size-option:hover {
+  text-decoration: underline;
+}
+
+/* Action buttons to the right of image */
+.product-action-buttons-side {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+  gap: 10px;
 }
 
 .checkout-button,
@@ -457,11 +487,12 @@ html, body, #root {
   border: 1px solid black;
   border-radius: 0;
   background: white;
-  padding: 4px 8px;
+  padding: 8px 12px;
   cursor: pointer;
   font-family: Helvetica, sans-serif;
   font-size: 12px;
   font-weight: normal;
+  min-width: 100px; /* ensures consistent button width */
 }
 
 .checkout-button:hover,
@@ -470,13 +501,29 @@ html, body, #root {
   color: white;
 }
 
+/* Header positioning */
 .product-detail-header {
   position: absolute;
   top: 40px;
   right: 40px;
 }
 
-.back-button {
+.gallery-header {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.inquiries-header {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+/* Header back buttons - no boxes */
+.product-detail-header .back-button,
+.gallery-header .back-button,
+.inquiries-header .back-button {
   font-family: Helvetica, sans-serif;
   font-size: 14px;
   font-weight: normal;
@@ -484,10 +531,33 @@ html, body, #root {
   border: none;
   color: black;
   cursor: pointer;
+  padding: 0;
 }
 
-.back-button:hover {
+.product-detail-header .back-button:hover,
+.gallery-header .back-button:hover,
+.inquiries-header .back-button:hover {
   text-decoration: underline;
+}
+
+/* Action button back buttons - keep boxes */
+.product-action-buttons-side .back-button,
+.product-action-buttons-vertical .back-button {
+  border: 1px solid black;
+  border-radius: 0;
+  background: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  min-width: 100px;
+}
+
+.product-action-buttons-side .back-button:hover,
+.product-action-buttons-vertical .back-button:hover {
+  background: black;
+  color: white;
 }
 /* Size options stacked */
 .size-options-vertical {
