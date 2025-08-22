@@ -604,3 +604,37 @@ html, body, #root {
 .back-button:hover {
   text-decoration: underline;
 }
+.cart-content {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}
+
+.remove-button {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.size-option.selected {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.cart-total {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}

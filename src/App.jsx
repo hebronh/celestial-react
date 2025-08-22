@@ -5,7 +5,10 @@ export default function App() {
   const [cartCount, setCartCount] = useState(0);
   const [page, setPage] = useState("landing");  
   const [galleryIndex, setGalleryIndex] = useState(1); 
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null); 
+  const [cart, setCart] = useState([]); 
+  const [selectedSize, setSelectedSize] = useState("1"); // default size
+
 
   const products = [
   { id: 1, name: "Product 1", price: "$85.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png" },
@@ -149,11 +152,15 @@ return (
           </button>
           <button className="checkout-button">Checkout</button>
           <button
-            className="add-to-cart-button"
-            onClick={() => setCartCount(cartCount + 1)}
-          >
-            Add to Cart
-          </button>
+  className="add-to-cart-button"
+  onClick={() => {
+    const item = { ...selectedProduct, size: selectedSize };
+    setCart([...cart, item]);
+    setPage("shop"); // optional: go back to shop after adding
+  }}
+>
+  Add to Cart
+</button>
         </div>
       </div>
 
@@ -165,11 +172,17 @@ return (
         </div>
         
         <div className="size-options-right">
-          <span className="size-label">Size:</span>
-          <span className="size-option">1</span>
-          <span className="size-option">2</span>
-          <span className="size-option">3</span>
-        </div>
+  <span className="size-label">Size:</span>
+  {[1,2,3].map((s) => (
+    <span
+      key={s}
+      className={`size-option ${selectedSize == s ? "selected" : ""}`}
+      onClick={() => setSelectedSize(s.toString())}
+    >
+      {s}
+    </span>
+  ))}
+</div>
       </div>
     </div>
   </main>
@@ -218,20 +231,56 @@ return (
 )}  
 
 {page === "cart" && (
-  <main className="cart-container">
+  <main className="shop-container" id="cart-page">
     <div className="cart-header">
       <button className="back-button" onClick={() => setPage("shop")}>
         Back
       </button>
-      <h1> Cart</h1>
     </div>
 
     <div className="cart-content">
-      {/* Here you can render items in the cart later */}
-      <p>Cart is currently empty.</p>
-    </div>
+  {cart.length === 0 ? (
+    <p>Cart is currently empty.</p>
+  ) : (
+    <>
+      {cart.map((item, idx) => (
+        <div key={idx} className="cart-item">
+          <span>
+            {item.name} (Size {item.size}) - {item.price}
+          </span>
+          <button
+            className="remove-button"
+            onClick={() => {
+              const newCart = cart.filter((_, i) => i !== idx);
+              setCart(newCart);
+            }}
+          >
+            -
+          </button>
+        </div>
+      ))}
+
+      {/* Calculate total */}
+      <div className="cart-total">
+        Total: $
+        {cart
+          .reduce((sum, item) => sum + parseFloat(item.price.replace("$", "")), 0)
+          .toFixed(2)}
+      </div>
+
+      {/* Checkout button */}
+      <button
+        className="checkout-button"
+        onClick={() => alert("Proceeding to checkout...")}
+      >
+        Checkout
+      </button>
+    </>
+  )}
+</div>
   </main>
 )}
+
 
     </>
   );
