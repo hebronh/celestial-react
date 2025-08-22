@@ -215,7 +215,24 @@ return (
 
     </div> {/* closes shop-content */}
   </main>
+)}  
+
+{page === "cart" && (
+  <main className="cart-container">
+    <div className="cart-header">
+      <button className="back-button" onClick={() => setPage("shop")}>
+        Back
+      </button>
+      <h1> Cart</h1>
+    </div>
+
+    <div className="cart-content">
+      {/* Here you can render items in the cart later */}
+      <p>Cart is currently empty.</p>
+    </div>
+  </main>
 )}
+
     </>
   );
 }

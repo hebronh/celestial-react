@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+/* max-width: 1280px;*/
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -14,9 +14,9 @@
   background-color: white;
 
   /* Checkerboard overlay */
-  background-image: url('./celestial/checkerboard2.png') center center no-repeat;
+  background-image: url('./celestial/checkerboard2.png');
   background-size: cover;    /* scale to fill screen */
-  background-position: center;
+  background-position: 160%;
   background-repeat: no-repeat;
 } 
 .logo {
@@ -176,7 +176,7 @@ html, body, #root {
   inset: 0;
   background: url('/checkerboard2.png') center/cover no-repeat;
   opacity: 1;   /* adjust transparency */
-  pointer-events: none;
+  pointer-events: none; 
 }  
 
 /* Container holding both sidebar and product grid */
@@ -585,4 +585,22 @@ html, body, #root {
   padding: 8px 12px;
   cursor: pointer;
   font-family: Helvetica, sans-serif;
+}
+
+.back-button {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: black;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;   /* adjust */
+  right: 40px; /* adjust */
+}
+
+.back-button:hover {
+  text-decoration: underline;
 }
