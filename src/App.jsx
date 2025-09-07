@@ -8,16 +8,37 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null); 
   const [cart, setCart] = useState([]); 
   const [selectedSize, setSelectedSize] = useState("1"); // default size 
-  const [showFront, setShowFront] = useState(true);
+  const [showFront, setShowFront] = useState(true); 
+  const [showDetails, setShowDetails] = useState(false);
 
 
 
   const products = [
-  { id: 1, name: "Product 1", price: "$85.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png" },
-  { id: 2, name: "Product 2", price: "$95.00", imgFront: "/imagedemo3.png", imgBack: "/imagedemo4.png" },
-  { id: 3, name: "Product 3", price: "$75.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png" },
-  { id: 4, name: "Product 4", price: "$120.00", imgFront: "/imagedemo3.png", imgBack: "/imagedemo4.png" },   
-  { id: 5, name: "Product 5", price: "$150.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png" },
+  { id: 1, name: "Product 1", price: "$85.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png", details: {
+      size: "Runs true to size. Available in S, M, L.",
+      fit: "Regular fit, slightly tapered at the waist.",
+      material: "100% Organic Cotton, soft and breathable."
+    }},
+  { id: 2, name: "Product 2", price: "$95.00", imgFront: "/imagedemo3.png", imgBack: "/imagedemo4.png", details: {
+      size: "Runs true to size. Available in S, M, L.",
+      fit: "Regular fit, slightly tapered at the waist.",
+      material: "100% Organic Cotton, soft and breathable."
+    }},
+  { id: 3, name: "Product 3", price: "$75.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png", details: {
+      size: "Runs true to size. Available in S, M, L.",
+      fit: "Regular fit, slightly tapered at the waist.",
+      material: "100% Organic Cotton, soft and breathable."
+    }},
+  { id: 4, name: "Product 4", price: "$120.00", imgFront: "/imagedemo3.png", imgBack: "/imagedemo4.png", details: {
+      size: "Runs true to size. Available in S, M, L.",
+      fit: "Regular fit, slightly tapered at the waist.",
+      material: "100% Organic Cotton, soft and breathable."
+    }},   
+  { id: 5, name: "Product 5", price: "$150.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png", details: {
+      size: "Runs true to size. Available in S, M, L.",
+      fit: "Regular fit, slightly tapered at the waist.",
+      material: "100% Organic Cotton, soft and breathable."
+    }},
   { id: 6, name: "Product 6", price: "$90.00", imgFront: "/imagedemo3.png", imgBack: "/imagedemo4.png" },
   { id: 7, name: "Product 7", price: "$110.00", imgFront: "/imagedemo.png", imgBack: "/imagedemo2.png" },
   { id: 8, name: "Product 8", price: "$130.00", imgFront: "/imagedemo3.png", imgBack: "/imagedemo4.png" },
@@ -168,7 +189,7 @@ return (
     >
     { "->" }
     </button>
-  </div>
+  </div> 
 </div>
 
         {/* Action buttons to the right of image */}
@@ -192,24 +213,41 @@ return (
 
       {/* Bottom section with product info */}
       <div className="product-detail-bottom">
-        <div className="product-info-section">
-          <h2 className="product-name">{selectedProduct.name}</h2>
-          <p className="product-price">{selectedProduct.price}</p>
-        </div>
-        
-        <div className="size-options-right">
-  <span className="size-label">Size:</span>
-  {[1,2,3].map((s) => (
-    <span
-      key={s}
-      className={`size-option ${selectedSize == s ? "selected" : ""}`}
-      onClick={() => setSelectedSize(s.toString())}
+  <div className="product-info-section">
+    <h2 className="product-name">{selectedProduct.name}</h2>
+    <p className="product-price">{selectedProduct.price}</p>
+
+    {/* DETAILS button and dropdown */}
+    <button
+      className="details-button"
+      onClick={() => setShowDetails(!showDetails)}
     >
-      {s}
-    </span>
-  ))}
-</div>
+      DETAILS {showDetails ? "v" : ">"}
+    </button>
+
+    {showDetails && selectedProduct && (
+      <div className="details-content">
+        <p><strong>Size:</strong> {selectedProduct.details.size}</p>
+        <p><strong>Fit:</strong> {selectedProduct.details.fit}</p>
+        <p><strong>Material:</strong> {selectedProduct.details.material}</p>
       </div>
+    )}
+  </div>
+
+  {/* Size options on the right */}
+  <div className="size-options-right">
+    <span className="size-label">Size:</span>
+    {[1, 2, 3].map((s) => (
+      <span
+        key={s}
+        className={`size-option ${selectedSize == s ? "selected" : ""}`}
+        onClick={() => setSelectedSize(s.toString())}
+      >
+        {s}
+      </span>
+    ))}
+  </div>
+</div>
     </div>
   </main>
 )}
