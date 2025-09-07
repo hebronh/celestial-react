@@ -540,25 +540,7 @@ html, body, #root {
   text-decoration: underline;
 }
 
-/* Action button back buttons - keep boxes */
-.product-action-buttons-side .back-button,
-.product-action-buttons-vertical .back-button {
-  border: 1px solid black;
-  border-radius: 0;
-  background: white;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-family: Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: normal;
-  min-width: 100px;
-}
 
-.product-action-buttons-side .back-button:hover,
-.product-action-buttons-vertical .back-button:hover {
-  background: black;
-  color: white;
-}
 /* Size options stacked */
 .size-options-vertical {
   display: flex;
@@ -576,7 +558,6 @@ html, body, #root {
 
 /* Buttons */
 .size-button,
-.back-button,
 .checkout-button,
 .add-to-cart-button {
   border: 1px solid black;
