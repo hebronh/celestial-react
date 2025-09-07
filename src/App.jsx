@@ -1,9 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
-export default function App() {
+function WaitingPage() {
+  return (
+    <main className="waiting-page">
+      <h1>Coming Soon!</h1>
+      <p>The site is under construction.</p>
+    </main>
+  );
+} 
+
+
+export default function App() { 
+  /* WAITING PAGE COMPONENT - CHANGE WAITING TO LANDING TO LAUNCH SITE*/ 
+  const [page, setPage] = useState("waiting"); // was "landing" 
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("preview") === "true") {
+      setPage("landing"); // bypass waiting page
+    }
+  }, []);
+
   const [cartCount, setCartCount] = useState(0);
-  const [page, setPage] = useState("landing");  
   const [galleryIndex, setGalleryIndex] = useState(1); 
   const [selectedProduct, setSelectedProduct] = useState(null); 
   const [cart, setCart] = useState([]); 
@@ -49,17 +68,18 @@ export default function App() {
 ];
 
 return (
-    <>
+    <> 
+     {page === "waiting" && <WaitingPage />}
+
       {page === "landing" && (
         <main
           id="landing-page"
           className="main-container"
           onClick={() => setPage("shop")}
         >
-          <div className="info-section"></div>
-          <div className="bottom-info"></div>
+          {/* your landing page content */}
         </main>
-      )}  
+      )}
 
     {page === "inquiries" && (
   <main className="inquiries-container"> 
