@@ -7,7 +7,9 @@ export default function App() {
   const [galleryIndex, setGalleryIndex] = useState(1); 
   const [selectedProduct, setSelectedProduct] = useState(null); 
   const [cart, setCart] = useState([]); 
-  const [selectedSize, setSelectedSize] = useState("1"); // default size
+  const [selectedSize, setSelectedSize] = useState("1"); // default size 
+  const [showFront, setShowFront] = useState(true);
+
 
 
   const products = [
@@ -139,11 +141,35 @@ return (
     <div className="product-detail-content">
       <div className="product-detail-main">
         {/* Product Image */}
-        <img
-          src={selectedProduct.imgFront}
-          alt={selectedProduct.name}
-          className="product-detail-image"
-        />
+        <div className="product-detail-image-container">
+  <img
+    src={selectedProduct.imgFront}
+    alt={`${selectedProduct.name} front`}
+    className="product-detail-image front"
+    style={{ display: showFront ? "block" : "none" }}
+  />
+  <img
+    src={selectedProduct.imgBack}
+    alt={`${selectedProduct.name} back`}
+    className="product-detail-image back"
+    style={{ display: showFront ? "none" : "block" }}
+  />
+
+  <div className="product-image-controls">
+    <button
+      className="arrow-button left"
+      onClick={() => setShowFront(!showFront)}
+    > 
+    { "<-" }  
+    </button>
+    <button
+      className="arrow-button right"
+      onClick={() => setShowFront(!showFront)}
+    >
+    { "->" }
+    </button>
+  </div>
+</div>
 
         {/* Action buttons to the right of image */}
         <div className="product-action-buttons-side">

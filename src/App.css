@@ -619,3 +619,37 @@ html, body, #root {
   font-weight: bold;
   font-size: 16px;
 }
+
+.product-detail-image-container {
+  position: relative;
+  width: 350px; /* same as current product image */
+  height: auto;
+}
+
+.product-detail-image-container .product-detail-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.4s ease;
+}
+
+.product-image-bottom {
+  display: flex;
+  justify-content: space-between; /* pushes arrows to opposite ends */
+  width: 100%;
+  max-width: 350px; /* match product image width */
+  margin-top: 10px; /* optional spacing below image */
+}
+
+.product-image-controls {
+  display: flex;
+  gap: 319px; /* arrows sit flush at ends */
+}
+
+.arrow-button {
+  border: none;
+  background: transparent; 
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
