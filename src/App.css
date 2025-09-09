@@ -7,14 +7,12 @@
 
 #landing-page {
   position: relative;
-  width: 100%;
-  height: 100vh;
-
+  width: 100%; 
+  height: calc(var(--vh, 1vh) * 100); 
   /* White background */
   background-color: white;
-
   /* Checkerboard overlay */
-  background-image: url('./celestial/checkerboard2.png');
+  background-image: url('/celestial/checkerboard2.png');
   background-size: cover;    /* scale to fill screen */
   background-position: 160%;
   background-repeat: no-repeat;
@@ -642,8 +640,9 @@ html, body, #root {
 }
 
 .product-image-controls {
-  display: flex;
-  gap: 319px; /* arrows sit flush at ends */
+  display: flex; 
+  gap: 0;  
+  justify-content: space-between;
 }
 
 .arrow-button {
@@ -739,6 +738,9 @@ html, body, #root {
   padding: 6px;
   font-size: 14px; 
   width: 60%;   
+   border-radius: 0;        /* removes rounded edges */
+  -webkit-appearance: none; /* removes iOS default styles */
+  appearance: none;  
 }
 
 .waiting-footer {
@@ -776,4 +778,242 @@ html, body, #root {
   justify-content: center; /* horizontally center them together */
   gap: 10px;               /* spacing between */
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .waiting-box {
+    padding: 16px;
+    height: auto; /* let it expand naturally */
+  }
+
+  .waiting-label {
+    font-size: 20px; /* slightly smaller */
+  }
+
+  .waiting-description {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .waiting-input {
+    font-size: 14px;
+    padding: 8px;
+    width: 100%; /* take full width */   
+    border-radius: 0;        /* removes rounded edges */ 
+    -webkit-appearance: none; /* removes iOS default styles */ 
+    appearance: none;  
+  }
+
+  .waiting-footer {
+    font-size: 10px;
+  }  
+  .received-text {
+  margin-top: 12px;
+  color: #e61616;       /* light red text */
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+@keyframes popIn {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+}  
+
+.received-text {
+  margin-top: 12px;
+  color: #e61616;       /* light red text */
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+@keyframes popIn {
+  to { transform: translateY(0); opacity: 1; }
+} 
+
+.site-footer {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 10px;          /* smaller text */
+  font-weight: bold;
+  border: 1px solid black;  /* very thin border */
+  display: inline-flex;
+  padding: 2px 4px;         /* minimal padding */
+  font-family: "Garamond", serif;
+}
+
+.footer-logo .star {
+  font-size: 6px;           /* tiny stars */
+  margin: 0 1px;
+  position: relative;
+  top: 1px;                 /* align vertically */
+}
+
+.footer-logo .trademark {
+  font-size: 3px;           /* microscopically small */
+  position: relative;
+  top: 6px;                 /* nudged down */
+  margin-left: 1px;
+}
+
+
+/* ===== Mobile adjustments (<= 600px) ===== */
+@media (max-width: 600px) {
+  /* Fullscreen sections use iOS-safe height */
+  #landing-page,
+  .gallery-container,
+  .product-detail-container,
+  .waiting-page {
+    height: calc(var(--vh) * 100);
+  }
+
+  /* Landing page background centers and covers */
+  #landing-page {
+    background-position: relative;
+    background-size: cover;
+    padding: 16px; 
+    height: calc(var(--vh, 1vh) * 100);
+
+  }
+
+  /* Logo scales down */
+  .shop-header { margin: 24px 0; }
+  .logo { width: 220px; }
+
+ .shop-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 12px;
+  }
+
+  /* Sidebar buttons: horizontal row instead of stacked */
+  .sidebar {
+    display: flex;
+    flex-direction: row;     /* row instead of column */
+    justify-content: center; /* center row horizontally */
+    gap: 8px;                /* space between buttons */
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .sidebar-button {
+    font-size: 14px;
+    padding: 6px 12px;
+    flex: 1;                 /* let them size evenly */
+    text-align: center;
+  }
+
+  /* Grid: 4 cols -> 2 cols, remove inner scroll */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+    width: 100%;
+    max-width: 360px;
+  }
+  .product-card { width: 100%; aspect-ratio: 1 / 1; }
+
+  /* Product detail: stack vertically */
+  .product-detail-container {
+    height: auto;               /* allow page to scroll */
+    min-height: calc(var(--vh) * 100);
+    padding: 16px 0 32px;
+  }
+  .product-detail-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .product-detail-image { width: 85vw; max-width: 360px; }
+  .product-detail-image-container { width: 85vw; max-width: 360px; }
+
+  /* Put arrows on opposite ends under the image (responsive) */
+  .product-image-bottom,
+  .product-image-controls {
+    display: flex;
+    justify-content: space-between; /* pushes arrows to edges */
+    align-items: center;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 8px;
+    gap: 0; /* kill any fixed gap like 319px */
+  }
+
+  .arrow-button {
+    min-width: 44px; min-height: 44px; /* comfy touch target */
+    font-size: 16px;
+  }
+
+  /* Info below image stacks */
+  .product-detail-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 85vw; max-width: 360px;
+    margin-left: 0;
+  }
+  .product-name { font-size: 16px; }
+  .product-price { font-size: 14px; }
+  .details-button,
+  .details-content { font-size: 14px; }
+
+  .size-options-right {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .size-label, .size-option { font-size: 14px; }
+
+  /* Back button: bigger tap area */
+  .back-button { font-size: 14px; padding: 6px 4px; }
+
+  /* Gallery */
+  .gallery-image { width: 85vw; max-width: 360px; }
+  .gallery-bottom { max-width: 85vw; }
+
+  /* Inquiries */
+  .inquiries-container { margin-top: 48px; }
+  .inquiries-form { width: 90vw; max-width: 360px; }
+  .inquiries-input, .inquiries-textarea {
+    font-size: 16px; /* avoids iOS zoom */
+  }
+  .inquiries-send { padding: 8px 12px; }
+
+  /* Cart */
+  .cart-content { width: 90vw; max-width: 360px; }
+  .cart-item { width: 100%; }
+}
+
+/* ===== Extra-small phones (<= 375px) refine sizes ===== */
+@media (max-width: 375px) {
+  .logo { width: 200px; }
+  .product-detail-image-container,
+  .product-detail-bottom,
+  .gallery-image,
+  .gallery-bottom { max-width: 320px; }  
+
+@media (max-width: 500px) {
+  #landing-page {
+    background-size: cover;         /* still fills screen */
+    background-position: center;    /* centers the pattern instead of 160% */
+  }
+} 
+}
+@media (max-width: 600px) {
+  #landing-page {
+    background-size: cover;       /* fills screen */
+    background-position: center;  /* centers for iPhone */
+    height: calc(var(--vh, 1vh) * 100);
+  }
 }

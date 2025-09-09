@@ -1,13 +1,31 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./App.css"; 
+
+
 
 function WaitingPage() {
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Thanks for subscribing: ${email}`);
-    setEmail("");
+
+    try {
+      // Example: Send to Formspree (replace with your endpoint)
+      await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
+        headers: { 
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      });
+
+      setSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      console.error("Error submitting email:", err);
+    }
   };
 
   return (
@@ -15,37 +33,42 @@ function WaitingPage() {
       <div className="waiting-box"> 
         
         <h1 className="waiting-logo"> 
-  <span className="star">★</span> 
-  CELESTIAL<span className="trademark">®</span> 
-  <span className="star">★</span> 
-</h1>
+          <span className="star">★</span> 
+          CELESTIAL<span className="trademark">®</span> 
+          <span className="star">★</span> 
+        </h1>
+
+        <p className="waiting-description">
+          Every Piece is Worked Meticulously.<br />
+          Thus It Will Take Some Time.<br />
+          But In Doing So, You May Wear It<br />
+          At the Right Time, For the Rest of Time.
+        </p>
+
+        <p className="waiting-lookbook">Collection 1 Lookbook Soon.</p>
+
+        <form onSubmit={handleSubmit} className="waiting-form">
+          <div className="waiting-field">
+            <label className="waiting-label" htmlFor="email">EMAIL:</label>
+            <input
+              type="email"
+              id="email"
+              className="waiting-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+        </form>
+
+        {submitted && ( 
+          <p className="received-text"> 
+          RECEIVED! 
+          </p> 
+        )}
 
 
-       <p className="waiting-description">
-  Every Piece is Worked Meticulously.<br />
-  Thus It Will Take Some Time.<br />
-  But In Doing So, You May Wear It<br />
-  At the Right Time, For the Rest of Time.
-</p>
-
-<p className="waiting-lookbook">Collection 1 Lookbook Soon.</p>
-
-<form onSubmit={handleSubmit} className="waiting-form">
-  <div className="waiting-field">
-    <label className="waiting-label" htmlFor="email">EMAIL:</label>
-    <input
-      type="email"
-      id="email"
-      className="waiting-input"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-    />
-  </div>
-</form>
-
-<p className="waiting-footer">CELESTIAL CAMOUFLAGE</p>
-
+        <p className="waiting-footer">CELESTIAL CAMOUFLAGE</p>
       </div>
     </main>
   );
@@ -61,6 +84,16 @@ export default function App() {
     if (params.get("preview") === "true") {
       setPage("landing"); // bypass waiting page
     }
+  }, []); 
+
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    setVh();
+    window.addEventListener("resize", setVh);
+    return () => window.removeEventListener("resize", setVh);
   }, []);
 
   const [cartCount, setCartCount] = useState(0);
@@ -250,7 +283,8 @@ return (
     >
     { "->" }
     </button>
-  </div> 
+  </div>   
+
 </div>
 
         {/* Action buttons to the right of image */}
@@ -332,7 +366,6 @@ return (
           Cart
         </button> 
       </div>
-
       <div className="product-grid">
 {products.map((p) => (
     <div
@@ -348,10 +381,19 @@ return (
         <img src={p.imgBack} alt={p.name} className="back" />
       </div>
     </div>
-  ))}
+  ))} 
 </div>
 
-    </div> {/* closes shop-content */}
+    </div> {/* closes shop-content */} 
+
+    <div className="site-footer">
+  <h1 className="footer-logo">
+    <span className="star">★</span>
+    CELESTIAL<span className="trademark">®</span>
+    <span className="star">★</span>
+  </h1>
+</div>
+
   </main>
 )}  
 
