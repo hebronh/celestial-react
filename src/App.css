@@ -713,7 +713,7 @@ html, body, #root {
 
 
 .waiting-description {
-  font-size: 20px;
+  font-size: 20px; 
   line-height: 1.6;
   margin-bottom: 20px; 
 }
@@ -751,4 +751,17 @@ html, body, #root {
   position: relative; 
   top: 2px;
 
+} 
+
+.waiting-logo .trademark {
+  font-size: 5px;        /* microscopically small */ 
+  font-weight: bold;
+  display: inline-block; /* allow positioning */
+  position: relative;    
+  align-self: flex-start; /* lets it ignore baseline alignment */
+  top: 13px;              /* now it will move down */
+  margin-left: 1px;
 }
+
+
+

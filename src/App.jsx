@@ -15,8 +15,11 @@ function WaitingPage() {
       <div className="waiting-box"> 
         
         <h1 className="waiting-logo"> 
-           <span className="star">★</span> CELESTIAL. <span className="star">★</span> 
-        </h1>
+  <span className="star">★</span> 
+  CELESTIAL<span className="trademark">®</span> 
+  <span className="star">★</span> 
+</h1>
+
 
         <p className="waiting-description">
           Every Piece is Worked Meticulously.<br />
