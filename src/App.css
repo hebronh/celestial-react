@@ -679,3 +679,76 @@ html, body, #root {
   text-align: left;
   line-height: 1.4;
 }
+
+.waiting-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.waiting-box {
+  display: inline-block;
+  border: 1px solid black;   /* single solid border */
+  padding: 25px 30px;         
+  font-size: 18px;           
+}
+
+.waiting-box span { 
+  font-size: 4px;            /* shrink the stars specifically */
+  margin: 0 2px;         
+}
+
+.waiting-logo {
+  font-size: 20px;
+  font-weight: bold;
+  border: 3px double black;   /* first border */
+  outline-offset: 2px;       /* spacing between them */
+  display: inline-flex;
+  padding: 5px 3px; 
+  font-family: "Garamond", serif; /* make text Garamond */
+}
+
+
+.waiting-description {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px; 
+}
+
+.waiting-lookbook {
+  margin-bottom: 20px;
+}
+
+.waiting-form {
+  margin: 20px 0;
+}
+
+.waiting-label {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.waiting-input {
+  border: 1px solid black;
+  padding: 6px;
+  font-size: 14px;
+  width: 60%;
+}
+
+.waiting-footer {
+  margin-top: 60px;
+  font-size: 12px;
+  font-style: italic; 
+  font-weight: bold; 
+  font-family: "Garamond", serif; 
+}
+.waiting-logo .star {
+  font-size: 12px;  /* smaller stars */
+  margin: 0 2px;    /* optional spacing */  
+  position: relative; 
+  top: 2px;
+
+}

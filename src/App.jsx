@@ -2,13 +2,47 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function WaitingPage() {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Thanks for subscribing: ${email}`);
+    setEmail("");
+  };
+
   return (
     <main className="waiting-page">
-      <h1>Coming Soon!</h1>
-      <p>The site is under construction.</p>
+      <div className="waiting-box"> 
+        
+        <h1 className="waiting-logo"> 
+           <span className="star">★</span> CELESTIAL. <span className="star">★</span> 
+        </h1>
+
+        <p className="waiting-description">
+          Every Piece is Worked Meticulously.<br />
+          Thus It Will Take Some Time.<br />
+          But In Doing So, You May Wear It<br />
+          At the Right Time, For the Rest of Time.
+        </p>
+
+        <p className="waiting-lookbook">Collection 1 Lookbook Soon.</p>
+
+        <form onSubmit={handleSubmit} className="waiting-form">
+          <label className="waiting-label">EMAIL:</label>
+          <input
+            type="email"
+            className="waiting-input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </form>
+
+        <p className="waiting-footer">CELESTIAL CAMOUFLAGE</p>
+      </div>
     </main>
   );
-} 
+}
 
 
 export default function App() { 
