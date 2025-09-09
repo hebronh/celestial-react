@@ -21,27 +21,31 @@ function WaitingPage() {
 </h1>
 
 
-        <p className="waiting-description">
-          Every Piece is Worked Meticulously.<br />
-          Thus It Will Take Some Time.<br />
-          But In Doing So, You May Wear It<br />
-          At the Right Time, For the Rest of Time.
-        </p>
+       <p className="waiting-description">
+  Every Piece is Worked Meticulously.<br />
+  Thus It Will Take Some Time.<br />
+  But In Doing So, You May Wear It<br />
+  At the Right Time, For the Rest of Time.
+</p>
 
-        <p className="waiting-lookbook">Collection 1 Lookbook Soon.</p>
+<p className="waiting-lookbook">Collection 1 Lookbook Soon.</p>
 
-        <form onSubmit={handleSubmit} className="waiting-form">
-          <label className="waiting-label">EMAIL:</label>
-          <input
-            type="email"
-            className="waiting-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </form>
+<form onSubmit={handleSubmit} className="waiting-form">
+  <div className="waiting-field">
+    <label className="waiting-label" htmlFor="email">EMAIL:</label>
+    <input
+      type="email"
+      id="email"
+      className="waiting-input"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    />
+  </div>
+</form>
 
-        <p className="waiting-footer">CELESTIAL CAMOUFLAGE</p>
+<p className="waiting-footer">CELESTIAL CAMOUFLAGE</p>
+
       </div>
     </main>
   );

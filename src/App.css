@@ -686,13 +686,13 @@ html, body, #root {
   align-items: center;
   height: 100vh;
   background: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
 .waiting-box {
   display: inline-block;
   border: 1px solid black;   /* single solid border */
-  padding: 25px 30px;         
+  padding: 25px 25px;         
   font-size: 18px;           
 }
 
@@ -713,9 +713,10 @@ html, body, #root {
 
 
 .waiting-description {
-  font-size: 20px; 
+  font-size: 21px;  
+  font-weight: 1600;
   line-height: 1.6;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;  
 }
 
 .waiting-lookbook {
@@ -723,27 +724,33 @@ html, body, #root {
 }
 
 .waiting-form {
-  margin: 20px 0;
+  margin: 20px 0; 
+  font-style: "Simple, elegant", "serif"; 
+  font-size: 20px;  
 }
 
 .waiting-label {
-  font-size: 14px;
-  margin-right: 10px;
+  font-size: 26px;
+  margin-right: 10px;  
 }
 
 .waiting-input {
   border: 1px solid black;
   padding: 6px;
-  font-size: 14px;
-  width: 60%;
+  font-size: 14px; 
+  width: 60%;   
 }
 
 .waiting-footer {
-  margin-top: 60px;
+  margin-top: 60px; 
+  margin-bottom: -10px;
   font-size: 12px;
-  font-style: italic; 
-  font-weight: bold; 
-  font-family: "Garamond", serif; 
+  font-style: italic;  
+  font-weight: 990;   /* thicker than bold */
+/*  font-weight: bold; */
+  font-family: "Garamond", serif;  
+  -webkit-text-stroke: 0.45px black;  /* adds thickness */
+
 }
 .waiting-logo .star {
   font-size: 12px;  /* smaller stars */
@@ -763,5 +770,10 @@ html, body, #root {
   margin-left: 1px;
 }
 
-
-
+.waiting-field {
+  display: flex;
+  align-items: center;     /* vertically center label + input */
+  justify-content: center; /* horizontally center them together */
+  gap: 10px;               /* spacing between */
+  width: 100%;
+}
