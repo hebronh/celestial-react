@@ -12,14 +12,14 @@ function WaitingPage() {
 
     try {
       // Example: Send to Formspree (replace with your endpoint)
-      await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        headers: { 
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-      });
+     await fetch("https://celestialcamo.com/_functions/subscribe", {
+  method: "POST",
+  headers: {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ email })
+});
 
       setSubmitted(true);
       setEmail("");
